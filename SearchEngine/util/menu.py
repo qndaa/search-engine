@@ -1,5 +1,6 @@
 import os
 
+from algorithm.paginacija import paginacija
 from algorithm.parsiranje_stabla_direktorijuma import parsiranje_stabla_direktorijuma
 from algorithm.pretraga import search_input_words
 from data_structures.graph import Graph
@@ -34,6 +35,7 @@ def menu():
             i = input("Unesite pretragu :")
             i = i.strip()
             result_set = search_input_words(i, trie)
+            paginacija(result_set, graph)
 
         #elif user_input == 4:
             #i = input("Unesite pretragu :")
