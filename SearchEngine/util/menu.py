@@ -3,8 +3,10 @@ import os
 from algorithm.paginacija import paginacija
 from algorithm.parsiranje_stabla_direktorijuma import parsiranje_stabla_direktorijuma
 from algorithm.pretraga import search_input_words
+from data_structures.expression_tree import  ExpressionTree
 from data_structures.graph import Graph
 from data_structures.parser import Parser
+from data_structures.parser_complex import ComplexParser
 from data_structures.trie import Trie
 
 
@@ -37,13 +39,32 @@ def menu():
             result_set = search_input_words(i, trie)
             paginacija(result_set, graph)
 
-        #elif user_input == 4:
-            #i = input("Unesite pretragu :")
-            #i = i.strip()
-            #result_set = search_input_words(i, trie)
-            #show(result_set, graph)
-        #elif user_input == 6:
-            #complex_query(graph, trie)
+        elif user_input == "3":
+            user_input = str(input("upit >> "))
+            user_input.strip()
+            split_input = user_input.split()
+            parser = ComplexParser(split_input)
+            parser.parse_input()
+            parser.check_query()
+
+            if parser.check and len(parser.parse_query):
+                parser.postfix_notation()
+                #print(parser.parse_result)
+                expression_tree = ExpressionTree(parser.parse_result)
+
+                expression_tree.construct_tree(trie)
+
+                expression_tree.evaluacija_expression_tree(graph, trie, expression_tree.root)
+                paginacija(expression_tree.root.value, graph)
+
+
+
+
+
+
+            else:
+                print("Nepravilan upit!")
+
         elif user_input == "0":
             print("\nUgodan dan!")
             print(":D")

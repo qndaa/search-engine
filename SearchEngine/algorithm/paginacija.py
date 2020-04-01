@@ -1,6 +1,6 @@
 from algorithm import sort
 from algorithm.rang import rang
-from data_structures.Pages import Pages
+from data_structures.pages import Pages
 
 
 def paginacija(result_set, graph):
@@ -14,11 +14,10 @@ def paginacija(result_set, graph):
         print("\nKoliko imate vremena za sort?")
         print("--" * 25)
         print("   {:40}    {:15}".format("Name sort", "Average time"))
-        print("1- {:40}    {:15}".format("Quick sort", "\u03F4(n log(n))"))
-        print("2- {:40}    {:15}".format("Merge sort", "\u03F4(n log(n))"))
-        print("3- {:40}    {:15}".format("Heap sort", "\u03F4(n log(n))"))
-        print("4- {:40}    {:15}".format("Insertion sort", "\u03F4(n^2)"))
-        print("5- {:40}    {:15}".format("Bubble sort", "\u03F4(n^2)"))
+        print("1- {:40}    {:15}".format("Merge sort", "\u03F4(n log(n))"))
+        print("2- {:40}    {:15}".format("Heap sort", "\u03F4(n log(n))"))
+        print("3- {:40}    {:15}".format("Insertion sort", "\u03F4(n^2)"))
+        print("4- {:40}    {:15}".format("Bubble sort", "\u03F4(n^2)"))
         print("--" * 25)
 
         while True:
@@ -31,14 +30,12 @@ def paginacija(result_set, graph):
                 return 0
 
             if user_input == 1:
-                sort.quick_sort(list_result, 0, len(list_result) - 1)
-            elif user_input == 2:
                 sort.merge_sort(list_result, 0, len(list_result) - 1)
-            elif user_input == 3:
+            elif user_input == 2:
                 sort.heap_sort(list_result)
-            elif user_input == 5:
-                sort.bubble_sort(list_result)
             elif user_input == 4:
+                sort.bubble_sort(list_result)
+            elif user_input == 3:
                 sort.insertion_sort(list_result)
             else:
                 print("Broj iz menija!")
@@ -52,3 +49,5 @@ def paginacija(result_set, graph):
 
     else:
         print("\nPretraga je neuspesna!\n")
+
+
