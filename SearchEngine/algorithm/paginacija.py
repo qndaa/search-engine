@@ -13,7 +13,7 @@ def paginacija(result_set, graph):
 
         print("\nKoliko imate vremena za sort?")
         print("--" * 25)
-        print("   {:40}    {:15}".format("Name sort", "Average time"))
+        print("   {:40}    {:15}".format("Name sort", "Worst case time"))
         print("1- {:40}    {:15}".format("Merge sort", "\u03F4(n log(n))"))
         print("2- {:40}    {:15}".format("Heap sort", "\u03F4(n log(n))"))
         print("3- {:40}    {:15}".format("Insertion sort", "\u03F4(n^2)"))
